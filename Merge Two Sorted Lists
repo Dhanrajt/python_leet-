@@ -1,0 +1,23 @@
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        temp1 = list1
+        temp2 = list2
+        if not temp1 :
+            return temp2
+        while(temp1.next!=None):
+            temp1 = temp1.next
+        temp1.next = temp2
+        temp1 = list1
+        res= []
+        while(temp1 != None):
+            res.append(temp1.val)
+            temp1 = temp1.next
+        res.sort()
+        temp1 = list1
+        ind = 0
+        while(temp1 != None):
+            temp1.val = res[ind]
+            ind += 1
+            temp1 = temp1.next
+        temp1 = list1
+        return temp1
